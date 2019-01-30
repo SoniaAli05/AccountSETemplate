@@ -88,17 +88,34 @@ public class AccountServiceTest {
 
 	@Test
 	public void getCountForFirstNamesInAccountWhenZeroOccurances() {
-		
+	Account newAccount = new Account("Sali", "Ali", 2222);
+	Account newAccount1 = new Account("Jasper", "Smith", 2332);	
+	rep.accounts.put((long)1,newAccount);
+	rep.accounts.put((long)2,newAccount1);
+	assertEquals("Contains First Name", 0 , rep.getCountForFirstName("Char"));		
+	
 	}
 	
 	@Test
 	public void getCountForFirstNamesInAccountWhenOne() {
-		
+	Account newAccount = new Account("Sali", "Ali", 2222);
+	Account newAccount1 = new Account("Jasper", "Smith", 2332);	
+	rep.accounts.put((long)1,newAccount);
+	rep.accounts.put((long)2,newAccount1);
+	assertEquals("Contains First Name", 1 , rep.getCountForFirstName("Sali"));		
 	}
 
 	@Test
 	public void getCountForFirstNamesInAccountWhenMult() {
-		
+	Account newAccount = new Account("Sali", "Ali", 2222);
+	Account newAccount1 = new Account("Jasper", "Smith", 2332);
+	Account newAccount2 = new Account("Jasper", "Dodo", 2032);	
+	rep.accounts.put((long)1,newAccount);
+	rep.accounts.put((long)2,newAccount1);
+	rep.accounts.put((long)3,newAccount1);
+	assertEquals("Contains First Name", 2 , rep.getCountForFirstName("Jasper"));		
 	}
 
+
 }
+ 
