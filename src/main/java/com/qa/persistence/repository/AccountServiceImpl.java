@@ -4,6 +4,8 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import java.util.Collection;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -12,6 +14,8 @@ import javax.transaction.Transactional;
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.util.JSONUtil;
 
+@Default
+@RequestScoped
 @Transactional(SUPPORTS)
 public class AccountServiceImpl implements AccountRepository{
 	
@@ -25,7 +29,6 @@ public class AccountServiceImpl implements AccountRepository{
 		Collection<Account> accounts = (Collection<Account>) query.getResultList();
 		return util.getJSONForObject(accounts);
 	}
-
 
 	@Override
 	@Transactional(REQUIRED)

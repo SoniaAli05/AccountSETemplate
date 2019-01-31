@@ -3,9 +3,14 @@ package com.qa.persistence.repository;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Alternative;
+
 import com.google.gson.Gson;
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.util.JSONUtil;
+
+@Alternative
 
 public class AccountMapRepository implements AccountRepository {
 
@@ -19,7 +24,7 @@ public class AccountMapRepository implements AccountRepository {
 			result += util.getJSONForObject(accounts.get(i));
 		}
 		return result;
-	
+
 	}
 
 
